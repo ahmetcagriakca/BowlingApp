@@ -79,4 +79,13 @@ Scenario 8
 	5. roll is 4
 	First frame score must be 19
 	Game score must be 34
-	
+			
+Scenario 9 				
+1- Do 4 roll with 2 strike	 	
+	1. roll is 10 	
+	2. roll is 10	
+	3. roll is 1	
+	4. roll is 2
+	First frame score must be 21 
+	Second frame score must be 13
+	Game score must be 37

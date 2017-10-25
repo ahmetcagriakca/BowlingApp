@@ -5,6 +5,8 @@ namespace BowlingApp.Test
 {
 	internal class Frame
 	{
+		private static readonly int DEFAULT_PIN_COUNT = 10;
+
 		private int pinCount;
 
 		private int score { get; set; } = 0;
@@ -17,7 +19,7 @@ namespace BowlingApp.Test
 
 		public Frame()
 		{
-			pinCount = 10;
+			pinCount = DEFAULT_PIN_COUNT;
 			Rolls = new List<Roll>();
 		}
 
@@ -33,6 +35,11 @@ namespace BowlingApp.Test
 			}
 		}
 
+
+		private int GetFrameKnockedPinCount()
+		{
+			return DEFAULT_PIN_COUNT - GetPinCount();
+		}
 
 		internal int GetScore()
 		{
@@ -51,7 +58,7 @@ namespace BowlingApp.Test
 						{
 							if (NextFrame != null && NextFrame.Rolls.Count > 0)
 							{
-								score = 10 - GetPinCount() + NextFrame.Rolls[0].Pins;
+								score = GetFrameKnockedPinCount() + NextFrame.Rolls[0].Pins;
 								FrameScoreIsCalculated = true;
 								return score;
 							}
@@ -62,21 +69,34 @@ namespace BowlingApp.Test
 						}
 						else if (Rolls.Count == 1)
 						{
-							if (NextFrame != null && NextFrame.Rolls.Count == 2)
+							if (NextFrame != null)
 							{
-								score = 10 - GetPinCount() + NextFrame.Rolls[0].Pins + NextFrame.Rolls[1].Pins;
-								FrameScoreIsCalculated = true;
-								return score;
-							}
-							else
-							{
+								if (NextFrame.Rolls.Count == 2)
+								{
+									score = GetFrameKnockedPinCount() + NextFrame.Rolls[0].Pins + NextFrame.Rolls[1].Pins;
+									FrameScoreIsCalculated = true;
+									return score;
+								}
+								else if (NextFrame.Rolls.Count == 1)
+								{
 
+									if (NextFrame.NextFrame != null && NextFrame.NextFrame.Rolls.Count > 0)
+									{
+										score = GetFrameKnockedPinCount() + NextFrame.Rolls[0].Pins + NextFrame.NextFrame.Rolls[0].Pins;
+										FrameScoreIsCalculated = true;
+										return score;
+									}
+									else
+									{
+
+									}
+								}
 							}
 						}
 					}
 					else
 					{
-						score = 10 - GetPinCount();
+						score = GetFrameKnockedPinCount();
 						if (Rolls.Count > 1)
 							FrameScoreIsCalculated = true;
 						return score;
@@ -86,6 +106,7 @@ namespace BowlingApp.Test
 			}
 			return 0;
 		}
+
 
 		internal int GetPinCount()
 		{
