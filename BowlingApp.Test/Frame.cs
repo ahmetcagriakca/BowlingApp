@@ -96,9 +96,11 @@ namespace BowlingApp.Test
 					}
 					else
 					{
-						score = GetFrameKnockedPinCount();
 						if (Rolls.Count > 1)
+						{
+							score = GetFrameKnockedPinCount();
 							FrameScoreIsCalculated = true;
+						}
 						return score;
 					}
 					return 0;

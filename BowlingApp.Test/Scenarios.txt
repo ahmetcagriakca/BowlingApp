@@ -64,7 +64,7 @@ Scenario 7
 	20. roll is 4
 	After Fourth Frame Fourth frame score must be 0 
 	After Fourth Frame game score must be must be 33
-	After Five Frame First roll game score must be 59 
+	After Five Frame First roll game score must be 51 
 	After Five Frame  game score must be 60
 	Check game is finished
 	Game score must be 105
@@ -107,7 +107,13 @@ Scenario 10
 	13. roll is 8	
 	14. roll is 1	
 	15. roll is 2	
-	16. roll is 4	
+	16. roll is 4	  
+	After Third Frame Second Frame score must be 0 
+	After Third Frame game score must be 30 
+	After Fourth Frame First roll Second Frame  score must be 28 
+	After Fourth Frame First roll game score must be 58  
+	After Fourth Frame game score must be 86  
+	Check game is finished
 	First frame score must be 30 
 	Second frame score must be 28 
 	Third frame score must be 19 
