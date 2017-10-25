@@ -89,3 +89,27 @@ Scenario 9
 	First frame score must be 21 
 	Second frame score must be 13
 	Game score must be 37
+
+Scenario 10 				
+1- Finish the game, Do 16 roll with 4 strike	
+	1. roll is 10 	
+	2. roll is 10	
+	3. roll is 10	
+	4. roll is 8	
+	5. roll is 1	
+	6. roll is 2	
+	7. roll is 4
+	8. roll is 10
+	9. roll is 8	
+	10. roll is 1	
+	11. roll is 2	
+	12. roll is 4	
+	13. roll is 8	
+	14. roll is 1	
+	15. roll is 2	
+	16. roll is 4	
+	First frame score must be 30 
+	Second frame score must be 28 
+	Third frame score must be 19 
+	Sixth frame score must be 19
+	Game score must be 141

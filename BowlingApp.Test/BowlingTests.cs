@@ -213,10 +213,8 @@ namespace BowlingApp.Test
 			Assert.AreEqual(34, game.Score());
 		}
 
-
-
 		/// <summary>
-		/// Scenario 8
+		/// Scenario 9
 		/// </summary>
 		[TestMethod]
 		public void FourRollWithTwoStrike()
@@ -235,6 +233,57 @@ namespace BowlingApp.Test
 			Assert.AreEqual(21, game.GetFrameScore(1));
 			Assert.AreEqual(13, game.GetFrameScore(2));
 			Assert.AreEqual(37, game.Score());
+		}
+
+		/// <summary>
+		/// Scenario 10
+		/// </summary>
+		[TestMethod]
+		public void SixteenRollWithFourStrike()
+		{
+			Game game = new Game();
+			Frame frame = new Frame();
+			frame.DoRoll(10);
+			game.AddFrame(frame);
+			frame = new Frame();
+			frame.DoRoll(10);
+			game.AddFrame(frame);
+			frame = new Frame();
+			frame.DoRoll(10);
+			game.AddFrame(frame);
+			frame = new Frame();
+			frame.DoRoll(8);
+			frame.DoRoll(1);
+			game.AddFrame(frame);
+			frame = new Frame();
+			frame.DoRoll(2);
+			frame.DoRoll(4);
+			game.AddFrame(frame);
+			frame = new Frame();
+			frame.DoRoll(10);
+			game.AddFrame(frame);
+			frame = new Frame();
+			frame.DoRoll(8);
+			frame.DoRoll(1);
+			game.AddFrame(frame);
+			frame = new Frame();
+			frame.DoRoll(2);
+			frame.DoRoll(4);
+			game.AddFrame(frame);
+			frame = new Frame();
+			frame.DoRoll(8);
+			frame.DoRoll(1);
+			game.AddFrame(frame);
+			frame = new Frame();
+			frame.DoRoll(2);
+			frame.DoRoll(4);
+			game.AddFrame(frame);
+			Assert.AreEqual(true, game.IsFinished);
+			Assert.AreEqual(30, game.GetFrameScore(1));
+			Assert.AreEqual(28, game.GetFrameScore(2));
+			Assert.AreEqual(19, game.GetFrameScore(3));
+			Assert.AreEqual(19, game.GetFrameScore(6));
+			Assert.AreEqual(141, game.Score());
 		}
 	}
 }
