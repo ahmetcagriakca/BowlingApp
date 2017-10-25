@@ -276,8 +276,7 @@ namespace BowlingApp.Test
 			frame.DoRoll(4);
 			game.AddFrame(frame);
 			frame = new Frame();
-			frame.DoRoll(8);
-			frame.DoRoll(1);
+			frame.DoRoll(10);
 			game.AddFrame(frame);
 			frame = new Frame();
 			frame.DoRoll(2);
@@ -287,8 +286,8 @@ namespace BowlingApp.Test
 			Assert.AreEqual(30, game.GetFrameScore(1));
 			Assert.AreEqual(28, game.GetFrameScore(2));
 			Assert.AreEqual(19, game.GetFrameScore(3));
-			Assert.AreEqual(19, game.GetFrameScore(6));
-			Assert.AreEqual(141, game.Score());
+			Assert.AreEqual(16, game.GetFrameScore(9));
+			Assert.AreEqual(148, game.Score());
 		}
 	}
 }
