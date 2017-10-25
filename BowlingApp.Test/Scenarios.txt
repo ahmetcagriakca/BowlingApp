@@ -30,7 +30,7 @@ Scenario 5
 
 Scenario 6
 
-1- Do 6 roll with one spare	 	
+1- Do 6 roll with 1 spare	 	
 	1. roll is 5 	
 	2. roll is 5	
 	3. roll is 8	
@@ -69,3 +69,14 @@ Scenario 7
 	Check game is finished
 	Game score must be 105
 
+	
+Scenario 8 		 
+1- Do 5 roll with 1 strike	 	
+	1. roll is 10 	
+	2. roll is 8	
+	3. roll is 1	
+	4. roll is 2	
+	5. roll is 4
+	First frame score must be 19
+	Game score must be 34
+	

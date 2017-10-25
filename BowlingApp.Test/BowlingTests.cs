@@ -115,7 +115,7 @@ namespace BowlingApp.Test
 		/// Scenario 6
 		/// </summary>
 		[TestMethod]
-		public void SixRollWithSpare()
+		public void SixRollWithOneSpare()
 		{
 			Game game = new Game();
 			Frame frame = new Frame();
@@ -189,6 +189,28 @@ namespace BowlingApp.Test
 			game.AddFrame(frame);
 			Assert.AreEqual(true, game.IsFinished);
 			Assert.AreEqual(105, game.Score());
+		}
+
+		/// <summary>
+		/// Scenario 8
+		/// </summary>
+		[TestMethod]
+		public void SixRollWithOneStrike()
+		{
+			Game game = new Game();
+			Frame frame = new Frame();
+			frame.DoRoll(10);
+			game.AddFrame(frame);
+			frame = new Frame();
+			frame.DoRoll(8);
+			frame.DoRoll(1);
+			game.AddFrame(frame);
+			frame = new Frame();
+			frame.DoRoll(2);
+			frame.DoRoll(4);
+			game.AddFrame(frame);
+			Assert.AreEqual(19, game.GetFrameScore(1));
+			Assert.AreEqual(34, game.Score());
 		}
 	}
 }

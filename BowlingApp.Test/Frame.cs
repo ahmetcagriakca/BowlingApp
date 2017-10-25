@@ -60,6 +60,19 @@ namespace BowlingApp.Test
 
 							}
 						}
+						else if (Rolls.Count == 1)
+						{
+							if (NextFrame != null && NextFrame.Rolls.Count == 2)
+							{
+								score = 10 - GetPinCount() + NextFrame.Rolls[0].Pins + NextFrame.Rolls[1].Pins;
+								FrameScoreIsCalculated = true;
+								return score;
+							}
+							else
+							{
+
+							}
+						}
 					}
 					else
 					{
