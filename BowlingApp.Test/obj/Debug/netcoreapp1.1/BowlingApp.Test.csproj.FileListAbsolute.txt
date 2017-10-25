@@ -1,0 +1,23 @@
+C:\Users\ahmet\Documents\Visual Studio 2017\Projects\BowlingDojo\BowlingDojo.Test\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\ahmet\Documents\Visual Studio 2017\Projects\BowlingDojo\BowlingDojo.Test\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\ahmet\Documents\Visual Studio 2017\Projects\BowlingDojo\BowlingDojo.Test\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\ahmet\Documents\Visual Studio 2017\Projects\BowlingDojo\BowlingDojo.Test\bin\Debug\netcoreapp1.1\BowlingApp.Test.deps.json
+C:\Users\ahmet\Documents\Visual Studio 2017\Projects\BowlingDojo\BowlingDojo.Test\bin\Debug\netcoreapp1.1\BowlingApp.Test.runtimeconfig.json
+C:\Users\ahmet\Documents\Visual Studio 2017\Projects\BowlingDojo\BowlingDojo.Test\bin\Debug\netcoreapp1.1\BowlingApp.Test.runtimeconfig.dev.json
+C:\Users\ahmet\Documents\Visual Studio 2017\Projects\BowlingDojo\BowlingDojo.Test\bin\Debug\netcoreapp1.1\BowlingApp.Test.dll
+C:\Users\ahmet\Documents\Visual Studio 2017\Projects\BowlingDojo\BowlingDojo.Test\bin\Debug\netcoreapp1.1\BowlingApp.Test.pdb
+C:\Users\ahmet\Documents\Visual Studio 2017\Projects\BowlingDojo\BowlingDojo.Test\obj\Debug\netcoreapp1.1\BowlingApp.Test.AssemblyInfo.cs
+C:\Users\ahmet\Documents\Visual Studio 2017\Projects\BowlingDojo\BowlingDojo.Test\obj\Debug\netcoreapp1.1\BowlingApp.Test.dll
+C:\Users\ahmet\Documents\Visual Studio 2017\Projects\BowlingDojo\BowlingDojo.Test\obj\Debug\netcoreapp1.1\BowlingApp.Test.pdb
+C:\Projects\Git\BowlingApp\BowlingApp.Test\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Projects\Git\BowlingApp\BowlingApp.Test\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Projects\Git\BowlingApp\BowlingApp.Test\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Projects\Git\BowlingApp\BowlingApp.Test\bin\Debug\netcoreapp1.1\BowlingApp.Test.deps.json
+C:\Projects\Git\BowlingApp\BowlingApp.Test\bin\Debug\netcoreapp1.1\BowlingApp.Test.runtimeconfig.json
+C:\Projects\Git\BowlingApp\BowlingApp.Test\bin\Debug\netcoreapp1.1\BowlingApp.Test.runtimeconfig.dev.json
+C:\Projects\Git\BowlingApp\BowlingApp.Test\bin\Debug\netcoreapp1.1\BowlingApp.Test.dll
+C:\Projects\Git\BowlingApp\BowlingApp.Test\bin\Debug\netcoreapp1.1\BowlingApp.Test.pdb
+C:\Projects\Git\BowlingApp\BowlingApp.Test\obj\Debug\netcoreapp1.1\BowlingApp.Test.csprojResolveAssemblyReference.cache
+C:\Projects\Git\BowlingApp\BowlingApp.Test\obj\Debug\netcoreapp1.1\BowlingApp.Test.AssemblyInfo.cs
+C:\Projects\Git\BowlingApp\BowlingApp.Test\obj\Debug\netcoreapp1.1\BowlingApp.Test.dll
+C:\Projects\Git\BowlingApp\BowlingApp.Test\obj\Debug\netcoreapp1.1\BowlingApp.Test.pdb

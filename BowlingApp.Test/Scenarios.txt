@@ -1,0 +1,71 @@
+﻿Scenario 1
+1- Do 2 roll
+	1. roll is 5
+	2. roll is 4
+	First frame score must be 9
+
+Scenario 2
+1- Do 6 roll		
+	1. roll is 5 	
+	2. roll is 4	
+	3. roll is 8	
+	4. roll is 1	
+	5. roll is 2	
+	6. roll is 4
+	First frame score must be 9
+	Game score must be 24
+				   
+Scenario 3 
+1- Do 10 frame with 2 roll  and knock 0 pins ever roll
+    Game result must be 0
+ 				   		   
+Scenario 4 
+1- Do 10 frame 1 roll and knock 1 pins ever roll
+    Game result must be 20
+
+Scenario 5 
+1- Do roll to end without spare or strike 
+	Do roll with random values 
+	Game score must be random values total
+
+Scenario 6
+
+1- Do 6 roll with one spare	 	
+	1. roll is 5 	
+	2. roll is 5	
+	3. roll is 8	
+	4. roll is 1	
+	5. roll is 2	
+	6. roll is 4
+	First frame score must be 18
+	Game score must be 33
+	 
+Scenario 7 					 
+1- Do 20 roll with 3 spare	 
+	1. roll is 5 	
+	2. roll is 5	
+	3. roll is 8	
+	4. roll is 1	
+	5. roll is 2	
+	6. roll is 4	
+	7. roll is 5 	
+	8. roll is 5	
+	9. roll is 8	
+	10. roll is 1	
+	11. roll is 2	
+	12. roll is 4
+	13. roll is 5 	
+	14. roll is 5	
+	15. roll is 8	
+	16. roll is 1	
+	17. roll is 2	
+	18. roll is 4   	
+	19. roll is 2	
+	20. roll is 4
+	After Fourth Frame Fourth frame score must be 0 
+	After Fourth Frame game score must be must be 33
+	After Five Frame First roll game score must be 59 
+	After Five Frame  game score must be 60
+	Check game is finished
+	Game score must be 105
+
