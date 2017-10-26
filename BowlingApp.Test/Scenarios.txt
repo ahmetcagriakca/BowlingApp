@@ -183,3 +183,13 @@ Scenario 12
 	Ninth frame score must be 28
 	Tenth frame score must be 27
 	Game score must be 181
+
+	
+Scenario 13
+1- All roll is strike
+					   								
+	Before Tenth Frame First roll game score must be 210
+	After Tenth Frame First roll game score must be 240 
+	Game is not finished
+	After Tenth Frame Second roll game score must be 270 
+	Game score must be 300

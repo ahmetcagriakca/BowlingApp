@@ -375,7 +375,9 @@ namespace BowlingApp.Test
 			frame.DoRoll(10);
 			frame = game.CreateFrame();//26
 			frame.DoRoll(10);
+			Assert.AreEqual(0, game.GetFrameScore(9));
 			frame.DoRoll(8);
+			Assert.AreEqual(28, game.GetFrameScore(9));
 			Assert.AreEqual(false, game.IsFinished);
 			frame.DoRoll(9);
 			Assert.AreEqual(true, game.IsFinished);
@@ -385,6 +387,38 @@ namespace BowlingApp.Test
 			Assert.AreEqual(28, game.GetFrameScore(9));
 			Assert.AreEqual(27, game.GetFrameScore(10));
 			Assert.AreEqual(181, game.Score());
+		}
+
+
+
+		/// <summary>
+		/// Scenario 3
+		/// </summary>
+		[TestMethod]
+		public void AllRollIsStrike()
+		{
+			Game game = new Game();
+			Frame frame = null;
+			for (int i = 0; i < 9; i++)
+			{
+				frame = game.CreateFrame();
+				for (int j = 0; j < 1; j++)
+				{
+					frame.DoRoll(10);
+				}
+			}
+			Assert.AreEqual(210, game.Score());
+			Assert.AreEqual(false, game.IsFinished);
+			frame = game.CreateFrame();
+			frame.DoRoll(10);
+			Assert.AreEqual(240, game.Score());
+			Assert.AreEqual(false, game.IsFinished);
+			frame.DoRoll(10);
+			Assert.AreEqual(270, game.Score());
+			Assert.AreEqual(false, game.IsFinished);
+			frame.DoRoll(10);
+			Assert.AreEqual(true, game.IsFinished);
+			Assert.AreEqual(300, game.Score());
 		}
 	}
 }

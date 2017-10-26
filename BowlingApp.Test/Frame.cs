@@ -142,9 +142,12 @@ namespace BowlingApp.Test
 									}
 									else
 									{
-										score = GetFrameKnockedPinCount() + NextFrame.Rolls[0].Pins + NextFrame.Rolls[1].Pins;
-										FrameScoreIsCalculated = true;
-										return score;
+										if (NextFrame.Rolls.Count > 1)
+										{
+											score = GetFrameKnockedPinCount() + NextFrame.Rolls[0].Pins + NextFrame.Rolls[1].Pins;
+											FrameScoreIsCalculated = true;
+											return score;
+										}
 									}
 								}
 							}
@@ -165,7 +168,7 @@ namespace BowlingApp.Test
 						{
 							if (Rolls.Count == 3)
 							{
-								score = Rolls[0].Pins + Rolls[1].Pins + Rolls[2].Pins ;
+								score = Rolls[0].Pins + Rolls[1].Pins + Rolls[2].Pins;
 								FrameScoreIsCalculated = true;
 								return score;
 								/*
