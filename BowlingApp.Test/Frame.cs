@@ -14,31 +14,74 @@ namespace BowlingApp.Test
 		private List<Roll> Rolls { get; set; } = new List<Roll>();
 		public bool AllPinsAreKnocked { get; private set; }
 		public bool FrameScoreIsCalculated { get; private set; }
+		public bool IsFinished
+		{
+			get
+			{
+				if (IsLastGame)
+				{
+					if (AllPinsAreKnocked == false && Rolls.Count == 2)
+						return true;
+					else if (AllPinsAreKnocked == true && Rolls.Count == 3)
+						return true;
+					else
+						return false;
+				}
+				else
+				{
+					return AllPinsAreKnocked == true || Rolls.Count == 2;
+				}
+			}
+		}
 
 		public Frame NextFrame;
+		private int FrameNumber;
+		private bool IsLastGame;
 
 		public Frame()
 		{
-			pinCount = DEFAULT_PIN_COUNT;
+			pinCount = 0;
 			Rolls = new List<Roll>();
 		}
 
-		internal void DoRoll(int v)
+		public Frame(int frameNumber) : this()
+		{
+			this.FrameNumber = frameNumber;
+		}
+
+		public Frame(int frameNumber, bool isLastGame) : this(frameNumber)
+		{
+			this.IsLastGame = isLastGame;
+		}
+
+		internal void DoRoll(int knockedPin)
 		{
 			Roll roll = new Roll();
-			roll.Pins = v;
+			roll.Pins = knockedPin;
 			Rolls.Add(roll);
-			pinCount -= v;
-			if (pinCount == 0)
+			if (!IsLastGame)
 			{
-				AllPinsAreKnocked = true;
+				pinCount += knockedPin;
+				if (pinCount == DEFAULT_PIN_COUNT)
+				{
+					AllPinsAreKnocked = true;
+				}
+			}
+			else
+			{
+				pinCount += knockedPin;
+				if (pinCount == DEFAULT_PIN_COUNT)
+				{
+					AllPinsAreKnocked = true;
+				}
+
 			}
 		}
 
 
 		private int GetFrameKnockedPinCount()
 		{
-			return DEFAULT_PIN_COUNT - GetPinCount();
+			return pinCount;
 		}
 
 		internal int GetScore()
@@ -52,67 +95,100 @@ namespace BowlingApp.Test
 				}
 				else
 				{
-					if (AllPinsAreKnocked)
+					if (!IsLastGame)
 					{
-						if (Rolls.Count == 2)
+						if (AllPinsAreKnocked)
 						{
-							if (NextFrame != null && NextFrame.Rolls.Count > 0)
+							if (Rolls.Count == 2)
 							{
-								score = GetFrameKnockedPinCount() + NextFrame.Rolls[0].Pins;
-								FrameScoreIsCalculated = true;
-								return score;
-							}
-							else
-							{
-
-							}
-						}
-						else if (Rolls.Count == 1)
-						{
-							if (NextFrame != null)
-							{
-								if (NextFrame.Rolls.Count == 2)
+								if (NextFrame != null && NextFrame.Rolls.Count > 0)
 								{
-									score = GetFrameKnockedPinCount() + NextFrame.Rolls[0].Pins + NextFrame.Rolls[1].Pins;
+									score = GetFrameKnockedPinCount() + NextFrame.Rolls[0].Pins;
 									FrameScoreIsCalculated = true;
 									return score;
 								}
-								else if (NextFrame.Rolls.Count == 1)
+								else
 								{
 
-									if (NextFrame.NextFrame != null && NextFrame.NextFrame.Rolls.Count > 0)
+								}
+							}
+							else if (Rolls.Count == 1)
+							{
+								if (NextFrame != null)
+								{
+
+									if (!NextFrame.IsLastGame)
 									{
-										score = GetFrameKnockedPinCount() + NextFrame.Rolls[0].Pins + NextFrame.NextFrame.Rolls[0].Pins;
-										FrameScoreIsCalculated = true;
-										return score;
+										if (NextFrame.Rolls.Count == 2)
+										{
+											score = GetFrameKnockedPinCount() + NextFrame.Rolls[0].Pins + NextFrame.Rolls[1].Pins;
+											FrameScoreIsCalculated = true;
+											return score;
+										}
+										else if (NextFrame.Rolls.Count == 1)
+										{
+
+											if (NextFrame.NextFrame != null && NextFrame.NextFrame.Rolls.Count > 0)
+											{
+												score = GetFrameKnockedPinCount() + NextFrame.Rolls[0].Pins + NextFrame.NextFrame.Rolls[0].Pins;
+												FrameScoreIsCalculated = true;
+												return score;
+											}
+											else
+											{
+
+											}
+										}
 									}
 									else
 									{
-
+										score = GetFrameKnockedPinCount() + NextFrame.Rolls[0].Pins + NextFrame.Rolls[1].Pins;
+										FrameScoreIsCalculated = true;
+										return score;
 									}
 								}
 							}
+						}
+						else
+						{
+							if (Rolls.Count > 1)
+							{
+								score = GetFrameKnockedPinCount();
+								FrameScoreIsCalculated = true;
+							}
+							return score;
 						}
 					}
 					else
 					{
-						if (Rolls.Count > 1)
+						if (AllPinsAreKnocked)
+						{
+							if (Rolls.Count == 3)
+							{
+								if (Rolls[0].Pins != DEFAULT_PIN_COUNT && (Rolls[0].Pins + Rolls[1].Pins == DEFAULT_PIN_COUNT))
+								{
+									score = Rolls[0].Pins + Rolls[1].Pins + Rolls[2].Pins + Rolls[2].Pins;
+									FrameScoreIsCalculated = true;
+									return score;
+								}
+							}
+						}
+						else
 						{
 							score = GetFrameKnockedPinCount();
 							FrameScoreIsCalculated = true;
+							return score;
 						}
-						return score;
 					}
-					return 0;
 				}
 			}
 			return 0;
 		}
 
 
-		internal int GetPinCount()
+		internal int GetRemainingPinCount()
 		{
-			return pinCount;
+			return DEFAULT_PIN_COUNT - pinCount;
 
 		}
 	}

@@ -5,14 +5,37 @@ namespace BowlingApp.Test
 {
 	internal class Game
 	{
+		private static readonly int MAX_FRAME_COUNT = 10;
+
 		private int score { get; set; }
-		private List<Frame> frames { get; set; } = new List<Frame>();
-		public bool IsFinished { get; internal set; }
+		private List<Frame> frames { get; set; }
+		public bool IsFinished
+		{
+			get
+			{
+				return frames.Count == 10 && frames.TrueForAll(en => en.IsFinished);
+			}
+		}
 
 		public Game()
 		{
+			frames = new List<Frame>();
 		}
 
+		public Frame CreateFrame()
+		{
+			Frame frame;
+			if (IsFinished == false)
+			{
+				frame = new Frame(frames.Count + 1, frames.Count+1 == MAX_FRAME_COUNT);
+				AddFrame(frame);
+			}
+			else
+			{
+				throw new Exception("Game is finished. New frame can not be create.");
+			}
+			return frame;
+		}
 		internal int Score()
 		{
 			score = 0;
@@ -40,10 +63,6 @@ namespace BowlingApp.Test
 				frames[frames.Count - 1].NextFrame = frame;
 			}
 			frames.Add(frame);
-			if (frames.Count == 10)
-			{
-				IsFinished = true;
-			}
 		}
 	}
 }

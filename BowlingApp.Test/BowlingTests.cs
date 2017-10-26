@@ -95,11 +95,11 @@ namespace BowlingApp.Test
 			while (!game.IsFinished)
 			{
 				Frame frame = new Frame();
-				int pinCount = frame.GetPinCount();
+				int pinCount = frame.GetRemainingPinCount();
 				int rollPins = random.Next(pinCount);
 				totalScore += rollPins;
 				frame.DoRoll(rollPins);
-				pinCount = frame.GetPinCount();
+				pinCount = frame.GetRemainingPinCount();
 				if (pinCount > 0)
 				{
 					rollPins = random.Next(pinCount);
@@ -239,7 +239,7 @@ namespace BowlingApp.Test
 		/// Scenario 10
 		/// </summary>
 		[TestMethod]
-		public void SixteenRollWithFourStrike()
+		public void FifteenRollWithFiveStrike()
 		{
 			Game game = new Game();
 			Frame frame = new Frame();
@@ -288,6 +288,56 @@ namespace BowlingApp.Test
 			Assert.AreEqual(19, game.GetFrameScore(3));
 			Assert.AreEqual(16, game.GetFrameScore(9));
 			Assert.AreEqual(148, game.Score());
+		}
+
+
+
+		/// <summary>
+		/// Scenario 11
+		/// </summary>
+		[TestMethod]
+		public void SixteenRollWithFiveStrikeAnd1SpareOnLastGame()
+		{
+			Game game = new Game();
+			Frame frame = game.CreateFrame();//30
+			frame.DoRoll(10);
+			frame = game.CreateFrame();//28
+			frame.DoRoll(10);
+			frame = game.CreateFrame();//19
+			frame.DoRoll(10);
+			Assert.AreEqual(0, game.GetFrameScore(2));
+			Assert.AreEqual(30, game.Score());
+			frame = game.CreateFrame();//9
+			frame.DoRoll(8);
+			Assert.AreEqual(28, game.GetFrameScore(2));
+			Assert.AreEqual(58, game.Score());
+			frame.DoRoll(1);
+			Assert.AreEqual(86, game.Score());
+			frame = game.CreateFrame();//6
+			frame.DoRoll(2);
+			frame.DoRoll(4);
+			frame = game.CreateFrame();//19
+			frame.DoRoll(10);
+			frame = game.CreateFrame();//9
+			frame.DoRoll(8);
+			frame.DoRoll(1);
+			frame = game.CreateFrame();//6
+			frame.DoRoll(2);
+			frame.DoRoll(4);
+			frame = game.CreateFrame();//20
+			frame.DoRoll(10);
+			frame = game.CreateFrame();//26
+			frame.DoRoll(2);
+			frame.DoRoll(8);
+			Assert.AreEqual(false, game.IsFinished);
+			frame.DoRoll(8);
+			Assert.AreEqual(true, game.IsFinished);
+			Assert.AreEqual(30, game.GetFrameScore(1));
+			Assert.AreEqual(28, game.GetFrameScore(2));
+			Assert.AreEqual(19, game.GetFrameScore(3));
+			Assert.AreEqual(20, game.GetFrameScore(9));
+			Assert.AreEqual(26, game.GetFrameScore(10));
+			Assert.AreEqual(172, game.Score());
 		}
 	}
 }
