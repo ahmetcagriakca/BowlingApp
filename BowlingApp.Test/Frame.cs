@@ -11,7 +11,7 @@ namespace BowlingApp.Test
 
 		private int score { get; set; } = 0;
 
-		private List<Roll> Rolls { get; set; } = new List<Roll>();
+		private List<Roll> Rolls { get; }
 		public bool AllPinsAreKnocked { get; private set; }
 		public bool FrameScoreIsCalculated { get; private set; }
 		public bool IsFinished
@@ -35,7 +35,9 @@ namespace BowlingApp.Test
 		}
 
 		public Frame NextFrame;
+
 		private int FrameNumber;
+
 		private bool IsLastGame;
 
 		public Frame()

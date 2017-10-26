@@ -186,7 +186,7 @@ Scenario 12
 
 	
 Scenario 13
-1- All roll is strike
+1- All rolls are strike
 					   								
 	Before Tenth Frame First roll game score must be 210
 	After Tenth Frame First roll game score must be 240 
