@@ -290,8 +290,6 @@ namespace BowlingApp.Test
 			Assert.AreEqual(148, game.Score());
 		}
 
-
-
 		/// <summary>
 		/// Scenario 11
 		/// </summary>
@@ -336,8 +334,57 @@ namespace BowlingApp.Test
 			Assert.AreEqual(28, game.GetFrameScore(2));
 			Assert.AreEqual(19, game.GetFrameScore(3));
 			Assert.AreEqual(20, game.GetFrameScore(9));
-			Assert.AreEqual(26, game.GetFrameScore(10));
-			Assert.AreEqual(172, game.Score());
+			Assert.AreEqual(18, game.GetFrameScore(10));
+			Assert.AreEqual(164, game.Score());
+		}
+
+
+		/// <summary>
+		/// Scenario 12
+		/// </summary>
+		[TestMethod]
+		public void SixteenRollWithFiveStrikeAnd1StrikeOnLastGame()
+		{
+			Game game = new Game();
+			Frame frame = game.CreateFrame();//30
+			frame.DoRoll(10);
+			frame = game.CreateFrame();//28
+			frame.DoRoll(10);
+			frame = game.CreateFrame();//19
+			frame.DoRoll(10);
+			Assert.AreEqual(0, game.GetFrameScore(2));
+			Assert.AreEqual(30, game.Score());
+			frame = game.CreateFrame();//9
+			frame.DoRoll(8);
+			Assert.AreEqual(28, game.GetFrameScore(2));
+			Assert.AreEqual(58, game.Score());
+			frame.DoRoll(1);
+			Assert.AreEqual(86, game.Score());
+			frame = game.CreateFrame();//6
+			frame.DoRoll(2);
+			frame.DoRoll(4);
+			frame = game.CreateFrame();//19
+			frame.DoRoll(10);
+			frame = game.CreateFrame();//9
+			frame.DoRoll(8);
+			frame.DoRoll(1);
+			frame = game.CreateFrame();//6
+			frame.DoRoll(2);
+			frame.DoRoll(4);
+			frame = game.CreateFrame();//20
+			frame.DoRoll(10);
+			frame = game.CreateFrame();//26
+			frame.DoRoll(10);
+			frame.DoRoll(8);
+			Assert.AreEqual(false, game.IsFinished);
+			frame.DoRoll(9);
+			Assert.AreEqual(true, game.IsFinished);
+			Assert.AreEqual(30, game.GetFrameScore(1));
+			Assert.AreEqual(28, game.GetFrameScore(2));
+			Assert.AreEqual(19, game.GetFrameScore(3));
+			Assert.AreEqual(28, game.GetFrameScore(9));
+			Assert.AreEqual(27, game.GetFrameScore(10));
+			Assert.AreEqual(181, game.Score());
 		}
 	}
 }

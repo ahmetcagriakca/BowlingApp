@@ -137,7 +137,7 @@ Scenario 11
 	13. roll is 10	
 	14. roll is 2	
 	15. roll is 8	
-	16. roll is 9	  
+	16. roll is 8	  
 	After Third Frame Second Frame score must be 0 
 	After Third Frame game score must be 30 
 	After Fourth Frame First roll Second Frame  score must be 28 
@@ -149,5 +149,37 @@ Scenario 11
 	Third frame score must be 19 
 	Sixth frame score must be 19
 	Ninth frame score must be 20
-	Tenth frame score must be 26
-	Game score must be 172
+	Tenth frame score must be 19
+	Game score must be 165
+	
+Scenario 12 				
+1- Finish the game, Do 16 roll with 5 strike 1 strike on Tenth game	
+	1. roll is 10 	
+	2. roll is 10	
+	3. roll is 10	
+	4. roll is 8	
+	5. roll is 1	
+	6. roll is 2	
+	7. roll is 4
+	8. roll is 10
+	9. roll is 8	
+	10. roll is 1	
+	11. roll is 2	
+	12. roll is 4
+	13. roll is 10	
+	14. roll is 10	
+	15. roll is 8	
+	16. roll is 9	  
+	After Third Frame Second Frame score must be 0 
+	After Third Frame game score must be 30 
+	After Fourth Frame First roll Second Frame  score must be 28 
+	After Fourth Frame First roll game score must be 58  
+	After Fourth Frame game score must be 86  
+	Check game is finished
+	First frame score must be 30 
+	Second frame score must be 28 
+	Third frame score must be 19 
+	Sixth frame score must be 19
+	Ninth frame score must be 28
+	Tenth frame score must be 27
+	Game score must be 181

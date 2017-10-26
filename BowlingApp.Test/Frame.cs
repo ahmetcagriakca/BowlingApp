@@ -165,12 +165,23 @@ namespace BowlingApp.Test
 						{
 							if (Rolls.Count == 3)
 							{
-								if (Rolls[0].Pins != DEFAULT_PIN_COUNT && (Rolls[0].Pins + Rolls[1].Pins == DEFAULT_PIN_COUNT))
-								{
-									score = Rolls[0].Pins + Rolls[1].Pins + Rolls[2].Pins + Rolls[2].Pins;
-									FrameScoreIsCalculated = true;
-									return score;
-								}
+								score = Rolls[0].Pins + Rolls[1].Pins + Rolls[2].Pins ;
+								FrameScoreIsCalculated = true;
+								return score;
+								/*
+									if (Rolls[0].Pins != DEFAULT_PIN_COUNT && (Rolls[0].Pins + Rolls[1].Pins == DEFAULT_PIN_COUNT))
+									{
+										score = Rolls[0].Pins + Rolls[1].Pins + Rolls[2].Pins + Rolls[2].Pins;
+										FrameScoreIsCalculated = true;
+										return score;
+									}
+									else
+									if (Rolls[0].Pins == DEFAULT_PIN_COUNT)
+									{
+										score = Rolls[0].Pins + Rolls[1].Pins + Rolls[2].Pins ;
+										FrameScoreIsCalculated = true;
+										return score;
+									}*/
 							}
 						}
 						else
